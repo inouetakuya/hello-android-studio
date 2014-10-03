@@ -4,16 +4,24 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.util.Log;
 
 public class MyActivity extends Activity {
+    private static final String TAG = MyActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreate() Restoring previous state");
+            /* restore state */
+        } else {
+            Log.d(TAG, "onCreate() No saved state available");
+            /* initialize app */
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
